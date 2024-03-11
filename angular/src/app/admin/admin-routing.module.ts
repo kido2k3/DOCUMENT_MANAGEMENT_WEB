@@ -8,6 +8,10 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
                 path: '',
                 children: [
                     {
+                        path: 'tenants/luu-tru',
+                        loadChildren: () => import('./tenants/luu-tru/luu-tru.module').then((m) => m.LuuTruModule),
+                    },
+                    {
                         path: 'users',
                         loadChildren: () => import('./users/users.module').then((m) => m.UsersModule),
                         data: { permission: 'Pages.Administration.Users' },

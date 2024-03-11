@@ -6,6 +6,7 @@ import { CreateTenantModalComponent } from './create-tenant-modal.component';
 import { EditTenantModalComponent } from './edit-tenant-modal.component';
 import { TenantFeaturesModalComponent } from './tenant-features-modal.component';
 import { TenantsComponent } from './tenants.component';
+import { LuuTruComponent } from './luu-tru/luu-tru.component';
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import { TenantsComponent } from './tenants.component';
         EditTenantModalComponent,
         TenantFeaturesModalComponent,
         TenantsComponent,
+
     ],
     imports: [AppSharedModule, AdminSharedModule, TenantsRoutingModule],
 })
