@@ -5,9 +5,11 @@
                 <div class="card-body">
                     <div class="row mb-4">
                         <div class="col-xl-10 text-end">
-                            <button name="DeleteButton" class="btn btn-danger" disabled>
-                                <i class="fas fa-trash"></i>
-                                {{ 'Xoa' | localize }}
+                            <button #deleteButton name="DeleteButton" class="btn btn-danger" 
+                            [disabled]="isDisabled"
+                            *ngIf="'Pages.Tenants.Delete' | permission"
+                            (click)="deleteTenant()">
+                            {{ 'Xoa' | localize }}
                             </button>
                         </div>
                     </div>
@@ -20,7 +22,10 @@
                                 [lazy]="true" [responsive]="primengTableHelper.isResponsive">
                                 <ng-template pTemplate="header">
                                     <tr>
-                                        
+                                        <th>
+                                            <input #allCheck type="checkbox" name="allCheckbox" id="allCheckbox" 
+                                            (change)="checkAll()"/>
+                                        </th>
                                         <th pSortableColumn="tenancyName">
                                             {{ 'TenancyCodeName' | localize }}
                                             <p-sortIcon field="tenancyName"></p-sortIcon>
@@ -46,6 +51,12 @@
                                 </ng-template>
                                 <ng-template pTemplate="body" let-record="$implicit">
                                     <tr>
+                                        <td>
+                                            <!-- <input #checkbox type="checkbox" name="subscribe" id="subscribe" [(ngModel)]="isCheckboxChecked"
+                                            (change)="check()"/> -->
+                                            <input #checkbox type="checkbox" name="subscribe" [id]="record.id" [(ngModel)]="record.isCheckboxChecked"
+                                            (change)="check(record)" />
+                                        </td>
                                         <td>
                                             <span class="p-column-title">{{ 'TenancyCodeName' | localize }}</span>
                                             <i *ngIf="record.connectionString" class="fa fa-database"
@@ -103,6 +114,6 @@
                 </div>
             </div>
         </div>
-        <p>luu-tru works!</p>
+        <!-- <p>luu-tru works!</p> -->
     </div>
 </div>
