@@ -100,6 +100,22 @@
                             <div class="primeng-no-data" *ngIf="primengTableHelper.totalRecordsCount == 0">
                                 {{ 'NoData' | localize }}
                             </div>
+                            <!--  -->
+                            <div *ngFor="let document of documents">
+                                <div class="row kt-row--no-padding align-items-center">
+                                    <div class="col">
+                                        <h4>{{document.code}}</h4>
+                                        <div>{{document.title}}</div>
+                                        <div>{{document.releaseDate}}</div>
+                                        <div>{{document.organization}}</div>
+                                        <div>{{document.effectiveDate}} </div>
+                                        <div>{{document.expirationDate}}</div>
+                                        <div>{{document.type}}</div>
+                                        <div>-----------------</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  -->
                             <div class="primeng-paging-container">
                                 <p-paginator [rows]="primengTableHelper.defaultRecordsCountPerPage" #paginator
                                     (onPageChange)="getTenants($event)"
