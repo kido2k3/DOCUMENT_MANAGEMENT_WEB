@@ -11,6 +11,7 @@ import {
   NameValueDto,
   TenantListDto,
   TenantServiceProxy,
+  DocumentServiceProxy, DocumentListDto, ListResultDtoOfDocumentListDto
 } from '@shared/service-proxies/service-proxies';
 import { DateTime } from 'luxon';
 import { DateTimeService } from '@app/shared/common/timing/date-time.service';
@@ -22,7 +23,7 @@ import { toNumber } from 'lodash-es';
   animations: [appModuleAnimation()]
 })
 
-export class LuuTruComponent extends AppComponentBase{
+export class LuuTruComponent extends AppComponentBase implements OnInit{
   @ViewChild('dataTable', { static: true }) dataTable: Table;
   @ViewChild('paginator', { static: true }) paginator: Paginator;
   @ViewChild('allCheck', {static: false}) allCheck: ElementRef<HTMLInputElement>;
@@ -30,14 +31,31 @@ export class LuuTruComponent extends AppComponentBase{
 
   tenant_id: number[] = []
   isDisabled: boolean = true;
+  // 
+  documents: DocumentListDto[] = [];
+  filter: string = '';
+  // 
 
   constructor(
     injector: Injector,
     private _tenantService: TenantServiceProxy,
     private _dateTimeService: DateTimeService,
+    // 
+    private _DocumentService: DocumentServiceProxy,
+    // 
   ) {
     super(injector);
   }
+
+  ngOnInit(): void {
+    this.getDocuments();
+  }
+
+  getDocuments(): void {
+    this._DocumentService.getDocuments(this.filter).subscribe((result) => {
+        this.documents = result.items;
+    });
+}
 
   ngAfterViewInit() { }
 
@@ -145,4 +163,5 @@ export class LuuTruComponent extends AppComponentBase{
         this.primengTableHelper.hideLoadingIndicator();
       });
   }
+
 }

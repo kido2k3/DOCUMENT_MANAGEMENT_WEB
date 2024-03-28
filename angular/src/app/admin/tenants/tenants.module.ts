@@ -14,7 +14,6 @@ import { LuuTruComponent } from './luu-tru/luu-tru.component';
         EditTenantModalComponent,
         TenantFeaturesModalComponent,
         TenantsComponent,
-
     ],
     imports: [AppSharedModule, AdminSharedModule, TenantsRoutingModule],
 })
