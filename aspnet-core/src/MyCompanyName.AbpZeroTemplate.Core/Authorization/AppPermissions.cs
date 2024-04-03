@@ -74,6 +74,11 @@
         //TENANT-SPECIFIC PERMISSIONS
 
         public const string Pages_Tenant_Dashboard = "Pages.Tenant.Dashboard";
+        public const string Pages_Tenant_Documents = "Pages.Tenant.Documents";
+        public const string Pages_Tenant_Documents_CreateDocument = "Pages.Tenant.Documents.CreateDocument";
+        public const string Pages_Tenant_Documents_DeleteDocument = "Pages.Tenant.Documents.DeleteDocument";
+
+
 
         public const string Pages_Administration_Tenant_Settings = "Pages.Administration.Tenant.Settings";
 
@@ -98,5 +103,6 @@
         public const string Pages_Administration_Host_Settings = "Pages.Administration.Host.Settings";
         public const string Pages_Administration_Host_Dashboard = "Pages.Administration.Host.Dashboard";
 
+        public static string Pages_Tenant_Document { get; internal set; }
     }
 }

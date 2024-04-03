@@ -168,6 +168,8 @@ namespace MyCompanyName.AbpZeroTemplate
             /* ADD YOUR OWN CUSTOM AUTOMAPPER MAPPINGS HERE */
 
             configuration.CreateMap<Document, DocumentListDto>();
+            configuration.CreateMap<CreateDocumentInput, Document>();
+
         }
     }
 }
