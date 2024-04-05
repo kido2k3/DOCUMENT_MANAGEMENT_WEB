@@ -21,7 +21,8 @@ export class AppNavigationService {
                 '/app/admin/hostDashboard'
             ),
             new AppMenuItem('Dashboard', 'Pages.Tenant.Dashboard', 'flaticon-line-graph', '/app/main/dashboard'),
-            new AppMenuItem("Documents", null, "flaticon-file-2", "/app/main/documents"),
+            new AppMenuItem('Documents', null, 'flaticon-file-2', '/app/main/documents'),
+            new AppMenuItem('Documents', 'Pages.Tenant.Documents', 'flaticon-book', '/app/main/documents'),
             new AppMenuItem('Tenants', 'Pages.Tenants', 'flaticon-list-3', '/app/admin/tenants'),
             new AppMenuItem('LuuTru', null, 'flaticon-open-box', '/app/admin/tenants/luu-tru'),
             new AppMenuItem('Editions', 'Pages.Editions', 'flaticon-app', '/app/admin/editions'),

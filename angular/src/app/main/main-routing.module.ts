@@ -14,7 +14,8 @@ import { RouterModule } from '@angular/router';
                     },
                     {
                         path: 'documents',
-                        loadChildren: () => import('./documents/documents.module').then(m => m.DocumentsModule)
+                        loadChildren: () => import('./documents/documents.module').then((m) => m.DocumentsModule),
+                        data: { permission: 'Pages.Tenant.Documents' },
                     },
                     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
                     { path: '**', redirectTo: 'dashboard' },
